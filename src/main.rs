@@ -1,3 +1,5 @@
+// Gemini 2.5 Pro was used to create this code
+
 // Declare the modules that Rust will look for in other files
 mod airport;
 mod game;
