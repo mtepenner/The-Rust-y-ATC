@@ -4,6 +4,7 @@
 mod airport;
 mod game;
 mod plane;
+mod flight_plan;
 
 use std::io::{self, Write};
 use std::thread;

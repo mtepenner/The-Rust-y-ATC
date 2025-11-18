@@ -1,5 +1,6 @@
 // Gemini 2.5 Pro was used to create this code
 
+use crate::flight_plan::FlightPlan;
 use rand::Rng;
 
 // --- PLANE MODULE ---
@@ -20,15 +21,19 @@ pub enum PlaneStatus {
 #[derive(Debug, Clone)]
 pub struct Plane {
     pub id: String,
+    pub flight_plan: FlightPlan, // Holds the flight plan
     pub status: PlaneStatus,
     /// Simple timer to simulate time-based events (e.g., boarding time)
     pub timer: i32,
 }
 
 impl Plane {
-    pub fn new(id: String) -> Self {
+    // --- THIS IS THE CORRECTED FUNCTION ---
+    // It now takes a FlightPlan as an argument, not a String
+    pub fn new(flight_plan: FlightPlan) -> Self {
         Plane {
-            id,
+            id: flight_plan.flight_id.clone(), // Get ID from the plan
+            flight_plan,                       // Store the whole plan
             status: PlaneStatus::Boarding,
             timer: rand::thread_rng().gen_range(10..=20), // 10-20 "ticks" to board
         }

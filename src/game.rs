@@ -1,6 +1,8 @@
-// Gemini 2.5 Pro was used to create this code
+// Gemini 2.5 Pro was used to write this code
+
 // Use `crate::` to import from other files in our project
 use crate::airport::Airport;
+use crate::flight_plan::FlightPlanManager;
 use crate::plane::{Plane, PlaneStatus};
 use rand::Rng;
 
@@ -12,19 +14,27 @@ pub struct Game {
     pub penalty_strikes: u32,
     pub airport: Airport,
     pub planes: Vec<Plane>,
+    pub flight_plan_manager: FlightPlanManager, // Field exists
     game_over: bool,
 }
 
 impl Game {
     pub fn new() -> Self {
+        let mut flight_plan_manager = FlightPlanManager::new();
+        // Generate a couple of initial flight plans
+        let plan1 = flight_plan_manager.generate_new_plan();
+        let plan2 = flight_plan_manager.generate_new_plan();
+
+        // --- THIS IS THE CORRECTED STRUCT INITIALIZATION ---
         Game {
             score: 0,
             penalty_strikes: 0,
             airport: Airport::new(),
             planes: vec![
-                Plane::new("SWA123".to_string()),
-                Plane::new("DAL456".to_string()),
+                Plane::new(plan1), // Use plans to create planes
+                Plane::new(plan2),
             ],
+            flight_plan_manager, // <-- THE FIX: Added this missing field
             game_over: false,
         }
     }
@@ -41,7 +51,15 @@ impl Game {
         }
 
         // Remove planes that are at the gate (finished)
-        self.planes.retain(|p| p.status != PlaneStatus::AtGate);
+        self.planes.retain(|p| {
+            if p.status == PlaneStatus::AtGate {
+                // If plane is done, remove its flight plan from the manager
+                self.flight_plan_manager.remove_plan(&p.id);
+                false
+            } else {
+                true
+            }
+        });
 
         // Occasionally spawn new planes
         if rand::thread_rng().gen_bool(0.1) { // 10% chance each tick
@@ -55,20 +73,23 @@ impl Game {
     }
 
     fn spawn_plane(&mut self) {
-        let prefixes = ["AAL", "UAL", "SWA", "JBU", "DAL"];
-        let prefix = prefixes[rand::thread_rng().gen_range(0..prefixes.len())];
-        let num = rand::thread_rng().gen_range(100..=999);
-        let id = format!("{}{}", prefix, num);
-
-        let mut new_plane = Plane::new(id.clone());
+        // Use the manager to create a new plan
+        let new_plan = self.flight_plan_manager.generate_new_plan();
+        let mut new_plane = Plane::new(new_plan); // Correctly passes FlightPlan
         
         // 50/50 chance to spawn arriving or departing
         if rand::thread_rng().gen_bool(0.5) {
             new_plane.status = PlaneStatus::InAir;
             new_plane.timer = rand::thread_rng().gen_range(10..=20); // Time until ready to land
-            println!("NEW PLANE: {} is approaching, will be ready to land soon.", id);
+            println!(
+                "NEW PLANE: {} is approaching ({} -> {}), will be ready to land soon.",
+                new_plane.id, new_plane.flight_plan.origin, new_plane.flight_plan.destination
+            );
         } else {
-            println!("NEW PLANE: {} is at the gate, beginning boarding.", id);
+            println!(
+                "NEW PLANE: {} is at the gate ({} -> {}), beginning boarding.",
+                new_plane.id, new_plane.flight_plan.origin, new_plane.flight_plan.destination
+            );
         }
         self.planes.push(new_plane);
     }
@@ -91,7 +112,13 @@ impl Game {
         println!("\n--- AIRCRAFT ---");
         for plane in &self.planes {
             let timer_info = if plane.timer > 0 { format!(" ({} ticks left)", plane.timer) } else { "".to_string() };
-            println!("  - {}: {:?}{}", plane.id, plane.status, timer_info);
+            println!(
+                "  - {}: {:?}{} | {}",
+                plane.id,
+                plane.status,
+                timer_info,
+                plane.flight_plan.summary()
+            );
         }
         
         println!("\n--- AWAITING YOUR COMMAND ---");
@@ -128,7 +155,6 @@ impl Game {
 
         match command {
             "pushback" => {
-                // --- FIX: removed `mut` ---
                 let plane = plane_opt.unwrap(); // Safe now
                 if plane.status == PlaneStatus::ReadyForPushback {
                     println!("ATC: {} cleared for pushback.", plane.id);
@@ -144,7 +170,6 @@ impl Game {
                 }
             }
             "takeoff" => {
-                // --- FIX: removed `mut` ---
                 let plane = plane_opt.unwrap(); // Safe now
                 let rwy_id = match runway_id {
                     Some(id) => id,
@@ -179,7 +204,6 @@ impl Game {
                 }
             }
             "land" => {
-                // --- FIX: removed `mut` ---
                 let plane = plane_opt.unwrap(); // Safe now
                 let rwy_id = match runway_id {
                     Some(id) => id,
