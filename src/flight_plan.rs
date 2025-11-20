@@ -95,7 +95,7 @@ impl FlightPlan {
             .unwrap()
             .to_string();
 
-        let origin_choices = ["KLAX", "KJFK", "KORD", "KATL", "KDFW"];
+        let origin_choices = ["KPDX"];
         let dest_choices = ["KSFO", "KLAS", "KMIA", "KBOS", "KDEN"];
 
         let origin = origin_choices
