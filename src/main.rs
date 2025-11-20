@@ -1,4 +1,5 @@
 // Gemini 2.5 Pro was used to create this code
+#![allow(clippy::all)]
 
 // Declare the modules that Rust will look for in other files
 mod airport;
@@ -9,6 +10,7 @@ mod plane;
 use std::io::{self, Write};
 use std::thread;
 use std::time::Duration;
+
 
 /// Clears the terminal screen.
 fn clear_screen() {
@@ -28,6 +30,7 @@ fn get_user_input() -> String {
 }
 
 /// Displays the main title and menu, returning the user's choice.
+
 fn show_main_menu() -> String {
     clear_screen();
     // ASCII Art Title
