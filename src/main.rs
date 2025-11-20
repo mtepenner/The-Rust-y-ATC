@@ -1,4 +1,7 @@
 // Gemini 2.5 Pro was used to create this code
+// ASCII art text generated from: https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type+Something+&x=none&v=4&h=4&w=80&we=false
+// ASCII plane art generated from: https://www.asciiart.eu/image-to-ascii
+
 #![allow(clippy::all)]
 
 // Declare the modules that Rust will look for in other files
@@ -160,7 +163,38 @@ fn run_game() {
     println!("Welcome! Manage the airport. Don't mess up.");
     println!("(Type 'quit' to exit the game at any time)");
     thread::sleep(Duration::from_millis(2500)); // Pause to read
-
+    println!(r"█████");
+    thread::sleep(Duration::from_millis(250)); 
+    clear_screen();
+    println!(r"██████████");
+    thread::sleep(Duration::from_millis(250)); 
+    clear_screen();
+    println!(r"███████████████");
+    thread::sleep(Duration::from_millis(250));
+    clear_screen();
+    println!(r"████████████████████");
+    thread::sleep(Duration::from_millis(250));
+    clear_screen();
+    println!(r"█████████████████████████");
+    thread::sleep(Duration::from_millis(250));
+    clear_screen();
+    println!(r"██████████████████████████████");
+    thread::sleep(Duration::from_millis(250));
+    clear_screen();
+    println!(r"███████████████████████████████████");
+    thread::sleep(Duration::from_millis(250));
+    clear_screen();
+    println!(r"████████████████████████████████████████");
+    thread::sleep(Duration::from_millis(250));
+    clear_screen();
+    println!(r"█████████████████████████████████████████████");
+    thread::sleep(Duration::from_millis(250));
+    clear_screen();
+    println!(r"██████████████████████████████████████████████████");
+    thread::sleep(Duration::from_millis(250));
+    clear_screen();
+    println!(r"███████████████████████████████████████████████████████");
+    thread::sleep(Duration::from_millis(250));
     while !game.is_game_over() {
         clear_screen(); // Clear screen for a fresh "radar" view
         game.draw();
@@ -232,6 +266,8 @@ fn main() {
                 println!(r"                                                    ░░██████           ");
                 println!(r"                                                     ░░░░░░            ");
                 println!(r"");
+                thread::sleep(Duration::from_millis(2500)); // Pause to read
+                clear_screen();
                 break;
             }
             _ => {
