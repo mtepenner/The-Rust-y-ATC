@@ -54,3 +54,11 @@ The project is modularized into several Rust files for maintainability and logic
 
 Dependencies
  * rand: Used for random number generation (Weather changes, flight ID generation, plane spawning).
+
+Everything seems to be operational.  I have experienced no major issues in final testing.  
+
+Lessons learned
+* I learned to treat the Rust compiler as more of a strict mentor than the enemy.  I encountered quite a few type mismatches and missing field errors which helped to prevent bugs at runtime
+* Making my code modular was also valuable for readability
+* Developing the PaneStatis enum allowed me to prevent planes from jumping to states that make no sense
+* It was also reinstated to me the value in version control and helped me patch up my ability to do Git pulls whenever necessary
