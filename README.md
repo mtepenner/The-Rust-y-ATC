@@ -1,5 +1,7 @@
 The Rust-y ATC is an interactive, terminal-based Air Traffic Control simulation game written in Rust. You play as an ATC controller managing a busy airport, dealing with arriving and departing flights, changing weather conditions, and strict safety regulations.
-Features
+
+## Features
+
  * Real-time Simulation: The game runs on a "tick" system where time progresses, and aircraft states update automatically.
  * Dynamic Weather: Weather shifts between Clear, Rainy, and High Winds, forcing you to close specific runways dynamically.
  * Flight Planning: Procedurally generated flight plans with real airline codes (SWA, DAL, UAL), aircraft types, and routes.
@@ -15,7 +17,7 @@ cd atc_simulator
  * Run the game:
    cargo run
 
-How to Play
+## How to Play
 Your goal is to manage aircraft states without causing accidents or violating airport protocols.
 Commands
 | Command | Usage | Description |
@@ -52,12 +54,12 @@ The project is modularized into several Rust files for maintainability and logic
    * Role: Data Generation.
    * Function: Procedurally generates realistic flight data, including Origin/Destination airports, Waypoints, Airlines, and Aircraft Types.
 
-Dependencies
+## Dependencies
  * rand: Used for random number generation (Weather changes, flight ID generation, plane spawning).
 
-Everything seems to be operational.  I have experienced no major issues in final testing.  
+## Everything seems to be operational.  I have experienced no major issues in final testing.  
 
-Lessons learned
+## Lessons learned
 * I learned to treat the Rust compiler as more of a strict mentor than the enemy.  I encountered quite a few type mismatches and missing field errors which helped to prevent bugs at runtime
 * Making my code modular was also valuable for readability
 * Developing the PlaneStatus enum allowed me to prevent planes from jumping to states that make no sense
