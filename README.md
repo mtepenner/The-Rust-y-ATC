@@ -19,7 +19,7 @@ cd atc_simulator
 
 ## How to Play
 Your goal is to manage aircraft states without causing accidents or violating airport protocols.
-Commands
+### Commands
 | Command | Usage | Description |
 |---|---|---|
 | Pushback | pushback [id] | Clears a plane at the gate to taxi (e.g., pushback SWA123). |
@@ -27,7 +27,7 @@ Commands
 | Land | land [id] [runway] | Clears an incoming plane to land (e.g., land DAL456 18). |
 | Wait | wait | Holds position for one tick (advances time). |
 | Quit | quit | Exits the current session. |
-Scoring & Rules
+### Scoring & Rules
  * +10 Points: Successful Takeoff or Landing.
  * +5 Points: Successful Pushback.
  * -5 Points: Penalty (Strike).
@@ -36,7 +36,7 @@ Common Penalties:
  * Trying to pushback a plane that is still "Boarding".
  * Clearing a plane for takeoff/landing on a runway closed by weather.
  * Interacting with a plane that doesn't exist.
-Project Structure
+## Project Structure
 The project is modularized into several Rust files for maintainability and logic separation:
  * src/main.rs
    * Role: The Entry Point.
@@ -57,7 +57,7 @@ The project is modularized into several Rust files for maintainability and logic
 ## Dependencies
  * rand: Used for random number generation (Weather changes, flight ID generation, plane spawning).
 
-## Everything seems to be operational.  I have experienced no major issues in final testing.  
+### Everything seems to be operational.  I have experienced no major issues in final testing.  
 
 ## Lessons learned
 * I learned to treat the Rust compiler as more of a strict mentor than the enemy.  I encountered quite a few type mismatches and missing field errors which helped to prevent bugs at runtime
