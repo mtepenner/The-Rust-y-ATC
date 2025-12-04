@@ -8,7 +8,8 @@ The Rust-y ATC is an interactive, terminal-based Air Traffic Control simulation 
  * Strict Rules: Penalties for clearing planes on closed runways or pushing back during boarding.
  * Win/Loss Condition: Accumulate points for successful operations. If you get 3 penalties, you're fired!
  * Cinematic Animations: ASCII art animations for fake loading screens as well as title and exit cards.
-Installation & Running
+
+## Installation & Running
 Ensure you have Rust and Cargo installed.
  * Clone the repository:
    git clone [https://github.com/mtepenner/The-Rust-y-ATC.git](https://github.com/mtepenner/The-Rust-y-ATC.git)
