@@ -60,5 +60,5 @@ Everything seems to be operational.  I have experienced no major issues in final
 Lessons learned
 * I learned to treat the Rust compiler as more of a strict mentor than the enemy.  I encountered quite a few type mismatches and missing field errors which helped to prevent bugs at runtime
 * Making my code modular was also valuable for readability
-* Developing the PaneStatis enum allowed me to prevent planes from jumping to states that make no sense
+* Developing the PlaneStatus enum allowed me to prevent planes from jumping to states that make no sense
 * It was also reinstated to me the value in version control and helped me patch up my ability to do Git pulls whenever necessary
