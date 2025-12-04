@@ -5,7 +5,7 @@ Features
  * Flight Planning: Procedurally generated flight plans with real airline codes (SWA, DAL, UAL), aircraft types, and routes.
  * Strict Rules: Penalties for clearing planes on closed runways or pushing back during boarding.
  * Win/Loss Condition: Accumulate points for successful operations. If you get 3 penalties, you're fired!
- * Cinematic Animations: ASCII art animations for takeoff sequences.
+ * Cinematic Animations: ASCII art animations for fake loading screens as well as title and exit cards.
 Installation & Running
 Ensure you have Rust and Cargo installed.
  * Clone the repository:
@@ -15,7 +15,7 @@ cd atc_simulator
  * Run the game:
    cargo run
 
-🎮 How to Play
+How to Play
 Your goal is to manage aircraft states without causing accidents or violating airport protocols.
 Commands
 | Command | Usage | Description |
