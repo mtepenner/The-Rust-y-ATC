@@ -51,8 +51,6 @@ The project is modularized into several Rust files for maintainability and logic
  * src/flight_plan.rs
    * Role: Data Generation.
    * Function: Procedurally generates realistic flight data, including Origin/Destination airports, Waypoints, Airlines, and Aircraft Types.
- * src/animation.rs
-   * Role: Visuals.
-   * Function: Contains the logic for rendering frame-by-frame ASCII animations for the "Watch Takeoff" feature.
+
 Dependencies
  * rand: Used for random number generation (Weather changes, flight ID generation, plane spawning).
