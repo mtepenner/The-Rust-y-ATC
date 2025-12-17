@@ -1,4 +1,3 @@
-// Gemini 2.5 Pro was used to create this code
 use rand::seq::SliceRandom; // <-- Removed 'Rng'
 
 // --- AIRPORT MODULE ---
