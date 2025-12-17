@@ -1,4 +1,3 @@
-// Gemini 2.5 Pro was used to create this code
 // ASCII art text generated from: https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type+Something+&x=none&v=4&h=4&w=80&we=false
 // ASCII plane art generated from: https://www.asciiart.eu/image-to-ascii
 
