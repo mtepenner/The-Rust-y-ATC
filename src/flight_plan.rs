@@ -1,5 +1,3 @@
-//Gemini 2.5 Pro was used to write this code
-
 use rand::{seq::SliceRandom, Rng};
 
 // --- AIRLINE ENUM ---
