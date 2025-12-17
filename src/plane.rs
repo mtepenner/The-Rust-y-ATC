@@ -1,5 +1,3 @@
-// Gemini 2.5 Pro was used to create this code
-
 use crate::flight_plan::FlightPlan;
 use rand::Rng;
 
