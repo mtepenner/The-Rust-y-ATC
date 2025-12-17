@@ -1,5 +1,3 @@
-// Gemini 2.5 Pro was used to write this code
-
 // Use `crate::` to import from other files in our project
 use crate::airport::Airport;
 use crate::flight_plan::FlightPlanManager;
